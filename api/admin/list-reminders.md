@@ -19,7 +19,7 @@ Lists all the reminders that are scheduled.
             "type": "daily",
             "interval": 3
         },
-        ...    
-    }],
+        "category": "baz"
+    }, ...]
 }
 ```

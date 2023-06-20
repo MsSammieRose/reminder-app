@@ -10,7 +10,8 @@ Updates an existing reminder given its ID.
     "scheduling": {
         "type": "daily",
         "interval": 3,
-    }
+    },
+    "category": "baz"
 }
 ```
 

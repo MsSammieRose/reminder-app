@@ -6,6 +6,7 @@
         "type": "daily",
         "interval": 3
     },
+    "category": "baz",
     "lastReminded": 0,
 }
 ```
