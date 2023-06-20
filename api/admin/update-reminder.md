@@ -1,6 +1,6 @@
 # PATCH /api/v1/admin/reminder/{id}
 
-Updates an existing reminder.
+Updates an existing reminder given its ID.
 
 ## Request:
 
@@ -19,3 +19,5 @@ Updates an existing reminder.
 ```json
 {}
 ```
+
+Returns a 404 if the reminder does not exist.

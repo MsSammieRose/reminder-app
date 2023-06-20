@@ -17,7 +17,7 @@ Lists all the reminders that are scheduled.
         "displayName": "bar",
         "scheduling": {
             "type": "daily",
-            "interval": 3,
+            "interval": 3
         },
         ...    
     }],

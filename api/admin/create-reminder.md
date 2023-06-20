@@ -9,7 +9,7 @@ Creates a new reminder.
     "displayName": "foo",
     "scheduling": {
         "type": "daily",
-        "interval": 3,
+        "interval": 3
     }
 }
 ```
@@ -18,14 +18,12 @@ Creates a new reminder.
 
 ```json
 {
-    "reminder": {
-        "id": "foo",
-        "displayName": "bar",
-        "scheduling": {
-            "type": "daily",
-            "interval": 3
-        },
-        "lastReminded": 0
-    }
+    "id": "foo",
+    "displayName": "bar",
+    "scheduling": {
+        "type": "daily",
+        "interval": 3
+    },
+    "lastReminded": 0
 }
 ```
