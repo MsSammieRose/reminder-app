@@ -15,13 +15,34 @@
 
 ## Server Setup
 
+- Install MySQL: `brew install mysql`
+- Start MySQL: `mysql.server start`
+- Create DB: 
+
 ```sh
-# Install server dependencies
-(cd server && npm i)
+mysql -u root <<EOF
+CREATE DATABASE reminderapp;
+CREATE USER 'reminder-server'@'localhost' IDENTIFIED WITH mysql_native_password BY 'remindme';
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT ON reminderapp.* TO 'reminder-server'@'localhost';
+FLUSH PRIVILEGES;
+EOF
 ```
+
+Create a `.env` file:
+
+```sh
+export PORT=8888
+export MYSQL_HOST=localhost
+export MYSQL_USER=reminder-server
+export MYSQL_PASSWORD=remindme
+export MYSQL_DB=reminderapp
+```
+
+- Install server dependencies: `(cd server && npm i)`
 
 ## Run server
 
-```sh
-(cd server && npm run start:dev)
-```
+- Start MySQL: `mysql.server start`
+- Import `.env` file: `source .env`
+- Run MySQL migrations: `node migration.js up`
+- Run server: `(cd server && npm run start:dev)`
