@@ -38,7 +38,7 @@ export MYSQL_PASSWORD=remindme
 export MYSQL_DB=reminderapp
 ```
 
-- Install server dependencies: `(cd server && npm i)`
+Install server dependencies: `(cd server && npm i)`
 
 ## Run server
 
