@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ErrorResponse } from "../model/error-response";
+import { ErrorResponse } from "../shared/api/error-response";
 
 export interface RequestHandler<RequestType, ResponseType> {
     handle(request: RequestType): Promise<ResponseType>;
