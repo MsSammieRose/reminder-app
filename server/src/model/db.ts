@@ -1,6 +1,6 @@
 export interface DbReminder {
     readonly id: string;
-    readonly displayName: string;
+    readonly display_name: string;
     readonly category: string | null;
     readonly last_reminded: number | null;
     readonly scheduling_type: 'daily';

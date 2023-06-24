@@ -15,7 +15,7 @@ export function dbToModel(dbReminder: DbReminder): Reminder {
 
     return {
         id: dbReminder.id,
-        displayName: dbReminder.displayName,
+        displayName: dbReminder.display_name,
         category: dbReminder.category,
         scheduling,
         lastReminded: dbReminder.last_reminded,
@@ -25,7 +25,7 @@ export function dbToModel(dbReminder: DbReminder): Reminder {
 export function modelToDb(reminder: Reminder): DbReminder {
     return {
         id: reminder.id,
-        displayName: reminder.displayName,
+        display_name: reminder.displayName,
         category: reminder.category,
         scheduling_type: reminder.scheduling.type,
         scheduling_interval: reminder.scheduling.interval,
