@@ -44,5 +44,5 @@ Install server dependencies: `(cd server && npm i)`
 
 - Start MySQL: `mysql.server start`
 - Import `.env` file: `source .env`
-- Run MySQL migrations: `node migration.js up`
+- Run MySQL migrations: `(cd server && node migration.js up)`
 - Run server: `(cd server && npm run start:dev)`
