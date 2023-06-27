@@ -1,3 +1,4 @@
+import ReminderDAO from './db/reminder-dao';
 import CreateReminderHandler from './handlers/admin/create-reminder-handler';
 import ListRemindersHandler from './handlers/admin/list-reminders-handler';
 import { useHandler } from './handlers/request-handler';
@@ -29,11 +30,13 @@ connection.connect((err) => {
     console.log('Connected to MySQL');
 });
 
+const reminderDao = new ReminderDAO(connection);
+
 const app = express();
 app.use(express.json());
 
-app.get('/api/v1/admin/reminder/list', (req, res) => useHandler(new ListRemindersHandler(connection), req, res));
-app.post('/api/v1/admin/reminder/create', (req, res) => useHandler(new CreateReminderHandler(connection), req, res));
+app.get('/api/v1/admin/reminder/list', (req, res) => useHandler(new ListRemindersHandler(reminderDao), req, res));
+app.post('/api/v1/admin/reminder/create', (req, res) => useHandler(new CreateReminderHandler(reminderDao), req, res));
 
 app.patch('/api/v1/admin/reminder/{:id}', (req, res) => {
     const request: UpdateReminderRequest = req.body;

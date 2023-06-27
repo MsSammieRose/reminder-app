@@ -5,14 +5,17 @@ export interface RequestHandler<RequestType, ResponseType> {
     handle(request: RequestType): Promise<ResponseType>;
 }
 
-export function useHandler<RequestType, ResponseType>(
+export async function useHandler<RequestType, ResponseType>(
     handler: RequestHandler<RequestType, ResponseType>, 
     req: Request<any, any, any>, 
     res: Response<ResponseType | ErrorResponse>,
-) {
+): Promise<void> {
     const request: RequestType = req.body;
 
-    handler.handle(request)
-        .then((response) => res.json(response))
-        .catch((err) => res.status(500).json({message: err.message}))
+    try {
+        const response = await handler.handle(request);
+        res.json(response);
+    } catch (err) {
+        res.status(500).json({message: (err as Error).message});
+    }
 }

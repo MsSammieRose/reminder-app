@@ -1,13 +1,12 @@
-import { Connection } from "mysql";
 import { RequestHandler } from "../request-handler";
 import { CreateReminderRequest, CreateReminderResponse } from "../../shared/api/admin/create-reminder";
 import { Reminder } from "../../shared/model/reminder";
 import uuid from 'uuid';
-import { modelToDb } from "../../model/conversions";
+import ReminderDAO from "../../db/reminder-dao";
 
 export default class CreateReminderHandler implements RequestHandler<CreateReminderRequest, CreateReminderRequest> {
 
-    constructor(private readonly connection: Connection) {
+    constructor(private readonly reminderDao: ReminderDAO) {
 
     }
 
@@ -35,15 +34,7 @@ export default class CreateReminderHandler implements RequestHandler<CreateRemin
             lastReminded,
         };
 
-        await new Promise<void>((resolve, reject) => {
-            this.connection.query('INSERT INTO reminders SET ?', modelToDb(reminder), (error) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve();
-                }
-            });
-        });
+        await this.reminderDao.insert(reminder);
 
         return reminder;
     }
