@@ -37,5 +37,3 @@ describe('the list reminders handler', () => {
         expect(reminderDao.list).toHaveBeenCalled();
     });
 });
-
-export {}

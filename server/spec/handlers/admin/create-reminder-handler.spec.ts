@@ -60,5 +60,3 @@ describe('the create reminder handler', () => {
         } as CreateReminderRequest)).rejects.toThrow();
     });
 });
-
-export {}
