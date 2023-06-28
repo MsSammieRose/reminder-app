@@ -11,6 +11,8 @@ export function dbToModel(dbReminder: DbReminder): Reminder {
             interval: dbReminder.scheduling_interval,
         };
         break;
+    default:
+        throw new Error(`Unrecognized scheduling type: ${dbReminder.scheduling_type}`);
     }
 
     return {
