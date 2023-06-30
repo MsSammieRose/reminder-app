@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import TaskRow from "../components/TaskRow.tsx";
-import getReminderList from "../store/api.tsx";
+import getReminderList from "../store/api.ts";
 
 function Dashboard() {
   useEffect(() => {
