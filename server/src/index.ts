@@ -5,6 +5,7 @@ import { useHandler } from './handlers/request-handler';
 import { UpdateReminderRequest } from './shared/api/admin/update-reminder';
 import express from 'express';
 import mysql from 'mysql';
+import cors from 'cors';
 
 const {
     MYSQL_HOST,
@@ -33,7 +34,13 @@ connection.connect((err) => {
 const reminderDao = new ReminderDAO(connection);
 
 const app = express();
+
+
 app.use(express.json());
+
+app.use(cors({
+    origin: '*'
+  }));
 
 app.get('/api/v1/admin/reminder/list', (req, res) => useHandler(new ListRemindersHandler(reminderDao), req, res));
 app.post('/api/v1/admin/reminder/create', (req, res) => useHandler(new CreateReminderHandler(reminderDao), req, res));
