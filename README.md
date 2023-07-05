@@ -1,5 +1,9 @@
 # Reminder app
 
+## Links
+
+[Trello Board](https://trello.com/b/sju98YUZ/reminder-app])
+
 ## Client Setup
 
 ```sh
@@ -17,7 +21,7 @@
 
 - Install MySQL: `brew install mysql`
 - Start MySQL: `mysql.server start`
-- Create DB: 
+- Create DB:
 
 ```sh
 mysql -u root <<EOF
@@ -32,7 +36,7 @@ Create a `.env` file:
 
 ```sh
 export PORT=8888
-export MYSQL_HOST=localhost
+export MYSQL_HOST=127.0.0.1
 export MYSQL_USER=reminder-server
 export MYSQL_PASSWORD=remindme
 export MYSQL_DB=reminderapp
